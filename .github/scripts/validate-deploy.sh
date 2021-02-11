@@ -2,8 +2,6 @@
 
 set -e
 
-source ./input.auto.tfvars
-
 RESOURCE_GROUP=$(cat ./terraform.tfvars | grep "new_resource_group" | sed -E "s/.*=//g" | sed 's/"//g')
 
 echo "Resource group: ${RESOURCE_GROUP}"
@@ -16,7 +14,11 @@ ADMIN_ACCESS_GROUP="${ACCESS_GROUP_BASE}_ADMIN"
 EDIT_ACCESS_GROUP="${ACCESS_GROUP_BASE}_EDIT"
 VIEW_ACCESS_GROUP="${ACCESS_GROUP_BASE}_VIEW"
 
-IFS=',' read -ra ADMIN_USERS <<< "${admin-users}"
+ADMIN_USER_LIST=$(cat ./input.auto.tfvars | grep "admin-users" | sed -E "s/.*=//g" | sed 's/"//g')
+EDIT_USER_LIST=$(cat ./input.auto.tfvars | grep "edit-users" | sed -E "s/.*=//g" | sed 's/"//g')
+VIEW_USER_LIST=$(cat ./input.auto.tfvars | grep "view-users" | sed -E "s/.*=//g" | sed 's/"//g')
+
+IFS=',' read -ra ADMIN_USERS <<< "${ADMIN_USER_LIST}"
 for user in "${ADMIN_USERS[@]}"; do
   if ! ibmcloud account users | grep -qi "${user}"; then
     echo "User not added to account: ${user}"
@@ -29,7 +31,7 @@ for user in "${ADMIN_USERS[@]}"; do
   fi
 done
 
-IFS=',' read -ra EDIT_USERS <<< "${edit-users}"
+IFS=',' read -ra EDIT_USERS <<< "${EDIT_USER_LIST}"
 for user in "${EDIT_USERS[@]}"; do
   if ! ibmcloud account users | grep -qi "${user}"; then
     echo "User not added to account: ${user}"
@@ -42,7 +44,7 @@ for user in "${EDIT_USERS[@]}"; do
   fi
 done
 
-IFS=',' read -ra VIEW_USERS <<< "${view-users}"
+IFS=',' read -ra VIEW_USERS <<< "${VIEW_USER_LIST}"
 for user in "${VIEW_USERS[@]}"; do
   if ! ibmcloud account users | grep -qi "${user}"; then
     echo "User not added to account: ${user}"
