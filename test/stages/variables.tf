@@ -59,6 +59,11 @@ variable "edit-users" {
   description = "Comma-separated list of users"
 }
 
+variable "view-users" {
+  type        = string
+  description = "Comma-separated list of users"
+}
+
 variable "new_resource_group" {
   type        = string
   description = "Existing resource group where the IKS cluster will be provisioned."
