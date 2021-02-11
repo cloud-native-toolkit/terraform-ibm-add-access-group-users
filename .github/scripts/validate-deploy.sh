@@ -22,6 +22,8 @@ VIEW_USER_LIST=$(cat ./input.auto.tfvars | grep "view-users" | sed -E "s/.*=//g"
 
 IFS=',' read -ra ADMIN_USERS <<< "${ADMIN_USER_LIST}"
 for user in "${ADMIN_USERS[@]}"; do
+  echo "Validating ${user} in ${ADMIN_ACCESS_GROUP}"
+
   if ! ibmcloud account users | grep -qi "${user}"; then
     echo "User not added to account: ${user}"
     exit 1
@@ -35,6 +37,8 @@ done
 
 IFS=',' read -ra EDIT_USERS <<< "${EDIT_USER_LIST}"
 for user in "${EDIT_USERS[@]}"; do
+  echo "Validating ${user} in ${EDIT_ACCESS_GROUP}"
+
   if ! ibmcloud account users | grep -qi "${user}"; then
     echo "User not added to account: ${user}"
     exit 1
@@ -48,6 +52,8 @@ done
 
 IFS=',' read -ra VIEW_USERS <<< "${VIEW_USER_LIST}"
 for user in "${VIEW_USERS[@]}"; do
+  echo "Validating ${user} in ${VIEW_ACCESS_GROUP}"
+
   if ! ibmcloud account users | grep -qi "${user}"; then
     echo "User not added to account: ${user}"
     exit 1
