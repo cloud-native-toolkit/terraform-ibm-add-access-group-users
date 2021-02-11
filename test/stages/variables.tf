@@ -48,3 +48,18 @@ variable "vpc_cluster" {
   description = "Flag indicating that this is a vpc cluster"
   default     = false
 }
+
+variable "admin-users" {
+  type        = string
+  description = "Comma-separated list of users"
+}
+
+variable "edit-users" {
+  type        = string
+  description = "Comma-separated list of users"
+}
+
+variable "new_resource_group" {
+  type        = string
+  description = "Existing resource group where the IKS cluster will be provisioned."
+}
