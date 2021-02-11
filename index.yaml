@@ -1,11 +1,19 @@
 id: github.com/ibm-garage-cloud/terraform-ibm-add-access-group-users
-name: ""
+name: ibm-add-access-group-users
 type: terraform
-description: ""
+description: Module to add users to provided access groups in an IBM Cloud account
+provider: ibm
 tags:
   - tools
   - devops
 versions:
+  - platforms:
+      - kubernetes
+      - ocp3
+      - ocp4
+    dependencies: []
+    variables: [{name: access_groups, type: list(string), description: List of the groups to which the users should be added}, {name: users, type: list(string), description: List of users}]
+    version: v1.0.0
   - platforms:
       - kubernetes
       - ocp3
@@ -27,28 +35,3 @@ versions:
     #          version: ">= 1.6.0"
     variables: []
     version: v0.0.0
-#    - name: cluster_type
-#      moduleRef:
-#        id: cluster
-#        output: type_code
-#    - name: cluster_ingress_hostname
-#      moduleRef:
-#        id: cluster
-#        output: ingress_hostname
-#    - name: cluster_config_file
-#      moduleRef:
-#        id: cluster
-#        output: config_file_path
-#    - name: tls_secret_name
-#      moduleRef:
-#        id: cluster
-#        output: tls_secret_name
-#    - name: releases_namespace
-#      moduleRef:
-#        id: namespace
-#        output: name
-#        discriminator: tools
-#    - name: icon_url
-#      moduleRef:
-#        id: dashboard
-#        output: base_icon_url
