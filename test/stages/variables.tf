@@ -52,16 +52,19 @@ variable "vpc_cluster" {
 variable "admin-users" {
   type        = string
   description = "Comma-separated list of users"
+  default     = ""
 }
 
 variable "edit-users" {
   type        = string
   description = "Comma-separated list of users"
+  default     = ""
 }
 
 variable "view-users" {
   type        = string
   description = "Comma-separated list of users"
+  default     = ""
 }
 
 variable "new_resource_group" {
