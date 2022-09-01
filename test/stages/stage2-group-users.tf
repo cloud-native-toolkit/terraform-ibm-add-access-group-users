@@ -9,7 +9,7 @@ module "edit-group" {
   source = "./module"
 
   users = module.edit-users.users
-  #6 access_groups = module.access_groups.editGroupNames
+  access_groups = module.access_groups.resource_group_name
 }
 
 module "view-group" {
