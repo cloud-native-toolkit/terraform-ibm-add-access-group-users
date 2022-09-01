@@ -2,7 +2,7 @@ module "admin-group" {
   source = "./module"
 
   users = module.admin-users.users
-  #6 access_groups = module.access_groups.adminGroupNames
+  access_groups = module.access_groups.resource_group_name
 }
 
 module "edit-group" {
@@ -16,5 +16,5 @@ module "view-group" {
   source = "./module"
 
   users = module.view-users.users
-  #6 access_groups = module.access_groups.viewGroupNames
+  access_groups = module.access_groups.resource_group_name
 }
