@@ -5,6 +5,7 @@ module "admin-group" {
   depends_on = [
     module.access_groups
   ]
+  access_groups = module.access_groups.adminGroupNames
 }
 
 #https://github.com/terraform-ibm-modules/terraform-ibm-toolkit-access-group/blob/main/outputs.tf
@@ -16,6 +17,7 @@ module "edit-group" {
   depends_on = [
     module.access_groups
   ]
+  access_groups = module.access_groups.editGroupNames
 }
 
 module "view-group" {
@@ -25,4 +27,8 @@ module "view-group" {
   depends_on = [
     module.access_groups
   ]
+  #access_groups = module.access_groups.viewGroupNames
+  
+  access_groups = module.access_groups.viewGroupNames
+
 }
