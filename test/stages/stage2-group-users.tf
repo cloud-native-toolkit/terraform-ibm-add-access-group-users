@@ -3,6 +3,7 @@ module "admin-group" {
 
   users = module.admin-users.users
   access_groups = module.access_groups.admin_group_name
+  
 }
 
 module "edit-group" {
