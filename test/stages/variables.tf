@@ -68,8 +68,3 @@ variable "new_resource_group" {
   type        = string
   description = "Existing resource group where the IKS cluster will be provisioned."
 }
-
-variable "Access_group" {
-  type        = string
-  description = "Existing resource group where the IKS cluster will be provisioned."
-}
