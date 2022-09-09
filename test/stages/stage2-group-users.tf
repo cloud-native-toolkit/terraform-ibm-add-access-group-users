@@ -6,7 +6,7 @@ module "admin-group" {
     module.access_groups
   ]
   access_groups =[module.access_groups.admin_group_name]
-  access_groups = ["RG_OXXOJXWCIPXY_ADMIN"]
+  #access_groups = ["RG_OXXOJXWCIPXY_ADMIN"]
 
 }
 
