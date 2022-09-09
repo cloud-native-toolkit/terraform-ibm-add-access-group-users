@@ -5,7 +5,9 @@ module "admin-group" {
   depends_on = [
     module.access_groups
   ]
-  access_groups =[module.access_groups.admin_group_name]
+  #access_groups =[module.access_groups.admin_group_name]
+  access_groups =["RG_OXXOJXWCIPXY_ADMIN"]
+
 }
 
 #https://github.com/terraform-ibm-modules/terraform-ibm-toolkit-access-group/blob/main/outputs.tf
@@ -17,7 +19,8 @@ module "edit-group" {
   depends_on = [
     module.access_groups
   ]
-  access_groups = [module.access_groups.edit_group_name]
+  #access_groups = [module.access_groups.edit_group_name]
+  access_groups =["RG_OXXOJXWCIPXY_EDIT"]
 }
 
 module "view-group" {
@@ -30,5 +33,5 @@ module "view-group" {
   #access_groups = module.access_groups.viewGroupNames
   
   access_groups = [module.access_groups.view_group_name]
-
+  access_groups =["RG_OXXOJXWCIPXY_VIEW"]
 }

@@ -3,6 +3,5 @@ module "access_groups" {
 
   ibmcloud_api_key    = var.ibmcloud_api_key
   resource_group_name = var.resource_group_name
-  
 
 }
