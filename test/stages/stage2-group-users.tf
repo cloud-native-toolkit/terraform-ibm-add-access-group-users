@@ -6,7 +6,7 @@ module "admin-group" {
     module.access_groups
   ]
   #access_groups =[module.access_groups.admin_group_name]
-  access_groups =["RG_OXXOJXWCIPXY_ADMIN"]
+  access_groups = ["RG_OXXOJXWCIPXY_ADMIN"]
 
 }
 
@@ -20,7 +20,7 @@ module "edit-group" {
     module.access_groups
   ]
   #access_groups = [module.access_groups.edit_group_name]
-  access_groups =["RG_OXXOJXWCIPXY_EDIT"]
+  access_groups = ["RG_OXXOJXWCIPXY_EDIT"]
 }
 
 module "view-group" {
@@ -32,6 +32,6 @@ module "view-group" {
   ]
   #access_groups = module.access_groups.viewGroupNames
   
-  access_groups = [module.access_groups.view_group_name]
-  access_groups =["RG_OXXOJXWCIPXY_VIEW"]
+  #access_groups = [module.access_groups.view_group_name]
+  access_groups = ["RG_OXXOJXWCIPXY_VIEW"]
 }
