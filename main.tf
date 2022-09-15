@@ -13,6 +13,6 @@ resource ibm_iam_access_group_members group_members {
 
 resource null_resource print_users {
   provisioner "local-exec" {
-    command = "echo 'List of users : ${var.users}' 'AG: ${var.access_groups}'"
+    command = "echo 'List of users : ${var.count}'"
   }
 }
