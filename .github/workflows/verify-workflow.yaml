@@ -12,7 +12,7 @@ jobs:
   verify:
     if: ${{ !contains( github.event.pull_request.labels.*.name, 'skip ci' ) }}
     runs-on: ubuntu-latest
-    container: quay.io/cloudnativetoolkit/terraform:v1.2-v2.0.8
+    container: quay.io/cloudnativetoolkit/cli-tools-ibmcloud:v1.2-v0.4.17
 
     strategy:
       matrix:
