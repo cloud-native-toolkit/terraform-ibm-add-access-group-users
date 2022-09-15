@@ -2,19 +2,36 @@ module "admin-group" {
   source = "./module"
 
   users = module.admin-users.users
-  access_groups = module.access_groups.adminGroupNames
+  depends_on = [
+    module.access_groups
+  ]
+  access_groups =[module.access_groups.admin_group_name]
+  #access_groups = ["RG_OXXOJXWCIPXY_ADMIN"]
+
 }
+
+#https://github.com/terraform-ibm-modules/terraform-ibm-toolkit-access-group/blob/main/outputs.tf
 
 module "edit-group" {
   source = "./module"
 
   users = module.edit-users.users
-  access_groups = module.access_groups.editGroupNames
+  depends_on = [
+    module.access_groups
+  ]
+  access_groups = [module.access_groups.edit_group_name]
+  #access_groups = ["RG_OXXOJXWCIPXY_EDIT"]
 }
 
 module "view-group" {
   source = "./module"
 
   users = module.view-users.users
-  access_groups = module.access_groups.viewGroupNames
+  depends_on = [
+    module.access_groups
+  ]
+  #access_groups = module.access_groups.viewGroupNames
+  
+  access_groups = [module.access_groups.view_group_name]
+  #access_groups = ["RG_OXXOJXWCIPXY_VIEW"]
 }

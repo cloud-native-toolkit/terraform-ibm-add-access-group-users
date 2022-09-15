@@ -20,6 +20,8 @@ None
 
 ## Example usage
 
+[Refer the test cases for more details](test/stages/stage2-group-users.tf)
+
 ```hcl-terraform
 module "dev_tools_argocd" {
   source = "github.com/ibm-garage-cloud/terraform-ibm-add-access-group-users.git?ref=v1.0.0"
